@@ -4,6 +4,7 @@
 	// For use by Calavera applications
 
 	#include "Calavera/Application.h"
+	#include "Calavera/Log.h"
 
 	// --- Entry Point ---------------------
 	#include "Calavera/EntryPoint.h"
