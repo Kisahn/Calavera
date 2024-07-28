@@ -65,4 +65,11 @@ namespace Calavera {
 		m_Data.VSync = enabled;
 	}
 
+	bool WindowsWindow::IsVSync() const
+	{
+		return m_Data.VSync;
+	}
+
+	
+
 }
