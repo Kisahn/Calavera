@@ -2,6 +2,9 @@
 #define APPLICATION_H
 
 #include "Core.h"
+#include "Events/Event.h"
+#include "Calavera/Events/ApplicationEvent.h"
+#include "Calavera/Log.h"
 
 namespace Calavera {
 
