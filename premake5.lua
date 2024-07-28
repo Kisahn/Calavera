@@ -10,6 +10,12 @@ workspace "Calavera"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
+
+include "Calavera/vendor/GLFW"
+
 project "Calavera"
 	location "Calavera"
 	kind "SharedLib"
@@ -17,6 +23,9 @@ project "Calavera"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "cvpch.h"
+	pchsource "Calavera/src/cvpch.cpp"
 
 	files
 	{
@@ -27,7 +36,14 @@ project "Calavera"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

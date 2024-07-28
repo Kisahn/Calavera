@@ -1,11 +1,12 @@
+#include "cvpch.h"
+
 #include "Application.h"
-#include <iostream>
 
 namespace Calavera {
 
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -15,17 +16,10 @@ namespace Calavera {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			CV_TRACE(e);
+			m_Window->OnUpdate();
 		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			CV_TRACE(e);
-		}
-
-		while (true);
 	}
 
 }

@@ -1,3 +1,4 @@
+#include "cvpch.h"
 #include "Log.h"
 
 namespace Calavera {

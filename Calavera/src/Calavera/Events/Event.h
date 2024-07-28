@@ -1,9 +1,7 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-#include <string>
-#include <functional>
-
+#include "cvpch.h"
 #include "Calavera/Core.h"
 
 namespace Calavera {

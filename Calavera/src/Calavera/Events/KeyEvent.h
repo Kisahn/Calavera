@@ -1,8 +1,6 @@
 #ifndef KEYEVENT_H
 #define KEYEVENT_H
 
-#include <sstream>
-
 #include "Event.h"
 
 namespace Calavera {

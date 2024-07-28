@@ -1,8 +1,6 @@
 #ifndef MOUSEEVENT_H
 #define MOUSEEVENT_H
 
-#include <sstream>
-
 #include "Event.h"
 
 namespace Calavera {

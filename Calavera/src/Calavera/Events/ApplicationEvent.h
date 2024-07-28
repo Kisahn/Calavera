@@ -1,8 +1,6 @@
 #ifndef APPLICATIONEVENT_H
 #define APPLICATIONEVENT_H
 
-#include <sstream>
-
 #include "Calavera/Core.h"
 #include "Event.h"
 
