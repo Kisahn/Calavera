@@ -14,6 +14,8 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
 
+include "Calavera/vendor/GLFW"
+
 project "Calavera"
 	location "Calavera"
 	kind "SharedLib"
@@ -40,7 +42,7 @@ project "Calavera"
 
 	links
 	{
-		"C:/DeveloppementJV/C++/Calavera/Calavera/vendor/GLFW/libs/glfw3.lib",
+		"GLFW",
 		"opengl32.lib"
 	}
 
