@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
+IncludeDir["Glad"] = "Calavera/vendor/Glad/include"
+IncludeDir["ImGui"] = "Calavera/vendor/imgui"
 
 include "Calavera/vendor/GLFW"
+include "Calavera/vendor/Glad"
+include "Calavera/vendor/imgui"
 
 project "Calavera"
 	location "Calavera"
@@ -37,12 +41,16 @@ project "Calavera"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -54,7 +62,8 @@ project "Calavera"
 		defines
 		{
 			"CV_PLATFORM_WINDOWS",
-			"CV_BUILD_DLL"
+			"CV_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -64,14 +73,17 @@ project "Calavera"
 	
 	filter "configurations:Debug"
 		defines "CV_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "CV_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "CV_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -111,12 +123,15 @@ project "Sandbox"
 	
 	filter "configurations:Debug"
 		defines "CV_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "CV_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "CV_DIST"
+		buildoptions "/MD"
 		optimize "On"

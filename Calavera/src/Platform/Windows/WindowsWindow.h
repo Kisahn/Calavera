@@ -1,9 +1,9 @@
 #ifndef WINDOWSWINDOW_H
 #define WINDOWSWINDOW_H
 
-#include <GLFW/glfw3.h>
-
 #include "Calavera/Window.h"
+
+#include "GLFW/glfw3.h"
 
 namespace Calavera {
 
