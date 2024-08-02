@@ -8,6 +8,8 @@
 #include "Calavera/Events/Event.h"
 #include "Calavera/Events/ApplicationEvent.h"
 
+#include "Calavera/ImGui/ImGuiLayer.h"
+
 
 namespace Calavera {
 
@@ -32,6 +34,7 @@ namespace Calavera {
 			bool OnWindowClose(WindowCloseEvent& e);
 
 			std::unique_ptr<Window> m_Window;
+			ImGuiLayer* m_ImGuiLayer;
 			bool m_Running = true;
 			LayerStack m_LayerStack;
 
