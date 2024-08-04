@@ -20,7 +20,7 @@
 #define CV_KEY_9                  57
 #define CV_KEY_SEMICOLON          59  /* ; */
 #define CV_KEY_EQUAL              61  /* = */
-#define CV_KEY_A                  65
+#define CV_KEY_A                  81
 #define CV_KEY_B                  66
 #define CV_KEY_C                  67
 #define CV_KEY_D                  68
@@ -36,7 +36,7 @@
 #define CV_KEY_N                  78
 #define CV_KEY_O                  79
 #define CV_KEY_P                  80
-#define CV_KEY_Q                  81
+#define CV_KEY_Q                  65
 #define CV_KEY_R                  82
 #define CV_KEY_S                  83
 #define CV_KEY_T                  84

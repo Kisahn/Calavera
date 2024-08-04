@@ -10,10 +10,6 @@
 
 #include "Calavera/ImGui/ImGuiLayer.h"
 
-#include "Calavera/Renderer/Shader.h"
-#include "Calavera//Renderer/Buffer.h"
-#include "Calavera/Renderer/VertexArray.h"
-
 namespace Calavera {
 
 	class CALAVERA_API Application
@@ -40,12 +36,6 @@ namespace Calavera {
 			ImGuiLayer* m_ImGuiLayer;
 			bool m_Running = true;
 			LayerStack m_LayerStack;
-
-			std::shared_ptr<Shader> m_Shader;
-			std::shared_ptr<VertexArray> m_VertexArray;
-
-			std::shared_ptr<Shader> m_BlueShader;
-			std::shared_ptr<VertexArray> m_SquareVA;
 
 			static Application* s_Instance;
 	};

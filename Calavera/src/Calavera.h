@@ -13,6 +13,17 @@
 
 #include "Calavera/ImGui/ImGuiLayer.h"
 
+// --- Renderer ------------------------
+#include "Calavera/Renderer/Renderer.h"
+#include "Calavera/Renderer/RenderCommand.h"
+
+#include "Calavera/Renderer/Buffer.h"
+#include "Calavera/Renderer/Shader.h"
+#include "Calavera/Renderer/VertexArray.h"
+
+#include "Calavera/Renderer/OrthographicCamera.h"
+// -------------------------------------
+
 // --- Entry Point ---------------------
 #include "Calavera/EntryPoint.h"
 // -------------------------------------
