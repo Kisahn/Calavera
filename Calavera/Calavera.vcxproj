@@ -162,9 +162,11 @@
     <ClInclude Include="src\Calavera\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Calavera\Renderer\Renderer.h" />
     <ClInclude Include="src\Calavera\Renderer\Shader.h" />
+    <ClInclude Include="src\Calavera\Renderer\VertexArray.h" />
     <ClInclude Include="src\Calavera\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cvpch.h" />
@@ -595,6 +597,8 @@
     <ClCompile Include="src\Calavera\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Calavera\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Calavera\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Calavera\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
