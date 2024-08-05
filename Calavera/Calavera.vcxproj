@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Calavera\Core\Timestep.h" />
     <ClInclude Include="src\Calavera\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Calavera.h" />
     <ClInclude Include="src\Calavera\Application.h" />

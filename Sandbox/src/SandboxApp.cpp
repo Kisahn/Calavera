@@ -119,22 +119,24 @@ class ExampleLayer : public Calavera::Layer
 			m_BlueShader.reset(new Calavera::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 		}
 
-		void OnUpdate() override
+		void OnUpdate(Calavera::Timestep ts) override
 		{
+			CV_TRACE("Delta time: {0}s ({1} ms)", ts.GetSeconds(), ts.GetMilliseconds());
+
 			if (Calavera::Input::IsKeyPressed(CV_KEY_LEFT))
-				m_CameraPosition.x -= m_CameraMoveSpeed;
+				m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 			else if (Calavera::Input::IsKeyPressed(CV_KEY_RIGHT))
-				m_CameraPosition.x += m_CameraMoveSpeed;
+				m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 			if (Calavera::Input::IsKeyPressed(CV_KEY_UP))
-				m_CameraPosition.y += m_CameraMoveSpeed;
+				m_CameraPosition.y += m_CameraMoveSpeed * ts;
 			else if (Calavera::Input::IsKeyPressed(CV_KEY_DOWN))
-				m_CameraPosition.y -= m_CameraMoveSpeed;
+				m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 
 			if (Calavera::Input::IsKeyPressed(CV_KEY_A))
-				m_CameraRotation += m_CameraRotationSpeed;
+				m_CameraRotation += m_CameraRotationSpeed * ts;
 			if (Calavera::Input::IsKeyPressed(CV_KEY_E))
-				m_CameraRotation -= m_CameraRotationSpeed;
+				m_CameraRotation -= m_CameraRotationSpeed * ts;
 			
 			Calavera::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 			Calavera::RenderCommand::Clear();
@@ -167,10 +169,10 @@ class ExampleLayer : public Calavera::Layer
 
 		Calavera::OrthographicCamera m_Camera;
 		glm::vec3 m_CameraPosition;
-		float m_CameraMoveSpeed = 0.1f;
+		float m_CameraMoveSpeed = 5.0f;
 
 		float m_CameraRotation = 0.0f;
-		float m_CameraRotationSpeed = 2.0f;
+		float m_CameraRotationSpeed = 180.0f;
 
 };
 

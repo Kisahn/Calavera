@@ -8,6 +8,8 @@
 #include "Calavera/Events/Event.h"
 #include "Calavera/Events/ApplicationEvent.h"
 
+#include "Calavera/Core/Timestep.h"
+
 #include "Calavera/ImGui/ImGuiLayer.h"
 
 namespace Calavera {
@@ -36,6 +38,7 @@ namespace Calavera {
 			ImGuiLayer* m_ImGuiLayer;
 			bool m_Running = true;
 			LayerStack m_LayerStack;
+			float m_LastFrameTime = 0.0f;
 
 			static Application* s_Instance;
 	};
