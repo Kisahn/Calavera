@@ -21,6 +21,7 @@
 
 #include "Calavera/Renderer/Buffer.h"
 #include "Calavera/Renderer/Shader.h"
+#include "Calavera/Renderer/Texture.h"
 #include "Calavera/Renderer/VertexArray.h"
 
 #include "Calavera/Renderer/OrthographicCamera.h"

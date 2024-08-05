@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
 IncludeDir["Glad"] = "Calavera/vendor/Glad/include"
 IncludeDir["ImGui"] = "Calavera/vendor/imgui"
 IncludeDir["glm"] = "Calavera/vendor/glm"
+IncludeDir["stb_image"] = "Calavera/vendor/stb_image"
 
 include "Calavera/vendor/GLFW"
 include "Calavera/vendor/Glad"
@@ -39,6 +40,8 @@ project "Calavera"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -55,7 +58,8 @@ project "Calavera"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
