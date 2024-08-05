@@ -1,6 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include "RenderCommand.h"
 #include "OrthographicCamera.h"
 #include "Shader.h"
