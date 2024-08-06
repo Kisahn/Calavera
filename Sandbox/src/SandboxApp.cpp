@@ -164,6 +164,7 @@ class ExampleLayer : public Calavera::Layer
 			m_TextureShader.reset(Calavera::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 			m_Texture = Calavera::Texture2D::Create("assets/textures/Checkerboard.png");
+			m_CalaveraLogoTexture = Calavera::Texture2D::Create("assets/textures/CalaveraLogo.png");
 
 			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_TextureShader)->Bind();
 			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -214,6 +215,8 @@ class ExampleLayer : public Calavera::Layer
 
 			m_Texture->Bind();
 			Calavera::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			m_CalaveraLogoTexture->Bind();
+			Calavera::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			// Triangle
 			// Calavera::Renderer::Submit(m_Shader, m_VertexArray);
@@ -239,7 +242,7 @@ class ExampleLayer : public Calavera::Layer
 		Calavera::Ref<Calavera::Shader> m_FlatColorShader, m_TextureShader;
 		Calavera::Ref<Calavera::VertexArray> m_SquareVA;
 
-		Calavera::Ref<Calavera::Texture2D> m_Texture;
+		Calavera::Ref<Calavera::Texture2D> m_Texture, m_CalaveraLogoTexture;
 
 		Calavera::OrthographicCamera m_Camera;
 		glm::vec3 m_CameraPosition;
