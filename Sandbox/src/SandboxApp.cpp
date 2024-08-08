@@ -92,7 +92,7 @@ class ExampleLayer : public Calavera::Layer
 				}			
 			)";
 
-				m_Shader.reset(Calavera::Shader::Create(vertexSrc, fragmentSrc));
+				m_Shader = Calavera::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 				std::string flatColorShaderVertexSrc = R"(
 				#version 330 core
@@ -126,15 +126,15 @@ class ExampleLayer : public Calavera::Layer
 				}			
 			)";
 
-			m_FlatColorShader.reset(Calavera::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+			m_FlatColorShader = Calavera::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-			m_TextureShader.reset(Calavera::Shader::Create("assets/shaders/Texture.glsl"));
+			auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 			m_Texture = Calavera::Texture2D::Create("assets/textures/Checkerboard.png");
 			m_CalaveraLogoTexture = Calavera::Texture2D::Create("assets/textures/CalaveraLogo.png");
 
-			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_TextureShader)->Bind();
-			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+			std::dynamic_pointer_cast<Calavera::OpenGLShader>(textureShader)->Bind();
+			std::dynamic_pointer_cast<Calavera::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 		}
 
 		void OnUpdate(Calavera::Timestep ts) override
@@ -180,10 +180,12 @@ class ExampleLayer : public Calavera::Layer
 				}
 			}
 
+			auto textureShader = m_ShaderLibrary.Get("Texture");
+
 			m_Texture->Bind();
-			Calavera::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			Calavera::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 			m_CalaveraLogoTexture->Bind();
-			Calavera::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			Calavera::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			// Triangle
 			// Calavera::Renderer::Submit(m_Shader, m_VertexArray);
@@ -203,10 +205,11 @@ class ExampleLayer : public Calavera::Layer
 		}
 
 	private:
+		Calavera::ShaderLibrary m_ShaderLibrary;
 		Calavera::Ref<Calavera::Shader> m_Shader;
 		Calavera::Ref<Calavera::VertexArray> m_VertexArray;
 
-		Calavera::Ref<Calavera::Shader> m_FlatColorShader, m_TextureShader;
+		Calavera::Ref<Calavera::Shader> m_FlatColorShader;
 		Calavera::Ref<Calavera::VertexArray> m_SquareVA;
 
 		Calavera::Ref<Calavera::Texture2D> m_Texture, m_CalaveraLogoTexture;
