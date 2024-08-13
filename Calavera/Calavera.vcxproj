@@ -159,6 +159,7 @@
     <ClInclude Include="src\Calavera\LayerStack.h" />
     <ClInclude Include="src\Calavera\Log.h" />
     <ClInclude Include="src\Calavera\MouseButtonCodes.h" />
+    <ClInclude Include="src\Calavera\OrthographicCameraController.h" />
     <ClInclude Include="src\Calavera\Renderer\Buffer.h" />
     <ClInclude Include="src\Calavera\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Calavera\Renderer\OrthographicCamera.h" />
@@ -603,6 +604,7 @@
     <ClCompile Include="src\Calavera\Layer.cpp" />
     <ClCompile Include="src\Calavera\LayerStack.cpp" />
     <ClCompile Include="src\Calavera\Log.cpp" />
+    <ClCompile Include="src\Calavera\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Calavera\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Calavera\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Calavera\Renderer\RenderCommand.cpp" />

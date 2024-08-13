@@ -42,10 +42,10 @@
 #define CV_KEY_T                  84
 #define CV_KEY_U                  85
 #define CV_KEY_V                  86
-#define CV_KEY_W                  87
+#define CV_KEY_W                  90
 #define CV_KEY_X                  88
 #define CV_KEY_Y                  89
-#define CV_KEY_Z                  90
+#define CV_KEY_Z                  87
 #define CV_KEY_LEFT_BRACKET       91  /* [ */
 #define CV_KEY_BACKSLASH          92  /* \ */
 #define CV_KEY_RIGHT_BRACKET      93  /* ] */

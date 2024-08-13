@@ -11,7 +11,7 @@ class ExampleLayer : public Calavera::Layer
 {
 	public:
 		ExampleLayer()
-			: Layer("Example"), m_Camera(-1.6, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+			: Layer("Example"),m_CameraController(1280.0f / 720.0f, true)
 		{
 			m_VertexArray.reset(Calavera::VertexArray::Create());
 
@@ -138,29 +138,15 @@ class ExampleLayer : public Calavera::Layer
 		}
 
 		void OnUpdate(Calavera::Timestep ts) override
-		{
-			if (Calavera::Input::IsKeyPressed(CV_KEY_LEFT))
-				m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-			else if (Calavera::Input::IsKeyPressed(CV_KEY_RIGHT))
-				m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-			if (Calavera::Input::IsKeyPressed(CV_KEY_UP))
-				m_CameraPosition.y += m_CameraMoveSpeed * ts;
-			else if (Calavera::Input::IsKeyPressed(CV_KEY_DOWN))
-				m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-			if (Calavera::Input::IsKeyPressed(CV_KEY_A))
-				m_CameraRotation += m_CameraRotationSpeed * ts;
-			if (Calavera::Input::IsKeyPressed(CV_KEY_E))
-				m_CameraRotation -= m_CameraRotationSpeed * ts;
+		{			
+			// Update
+			m_CameraController.OnUpdate(ts);
 			
+			// Render
 			Calavera::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 			Calavera::RenderCommand::Clear();
 
-			m_Camera.SetPosition(m_CameraPosition);
-			m_Camera.SetRotation(m_CameraRotation);
-
-			Calavera::Renderer::BeginScene(m_Camera);
+			Calavera::Renderer::BeginScene(m_CameraController.GetCamera());
 
 			static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -200,8 +186,9 @@ class ExampleLayer : public Calavera::Layer
 			ImGui::End();
 		}
 
-		void OnEvent(Calavera::Event& event) override
+		void OnEvent(Calavera::Event& e) override
 		{
+			m_CameraController.OnEvent(e);
 		}
 
 	private:
@@ -214,12 +201,7 @@ class ExampleLayer : public Calavera::Layer
 
 		Calavera::Ref<Calavera::Texture2D> m_Texture, m_CalaveraLogoTexture;
 
-		Calavera::OrthographicCamera m_Camera;
-		glm::vec3 m_CameraPosition;
-		float m_CameraMoveSpeed = 5.0f;
-
-		float m_CameraRotation = 0.0f;
-		float m_CameraRotationSpeed = 180.0f;
+		Calavera::OrthographicCameraController m_CameraController;
 
 		glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 

@@ -12,6 +12,7 @@
 #include "Calavera/Input.h"
 #include "Calavera/KeyCodes.h"
 #include "Calavera/MouseButtonCodes.h"
+#include "Calavera/OrthographicCameraController.h"
 
 #include "Calavera/ImGui/ImGuiLayer.h"
 
