@@ -23,6 +23,8 @@ private:
 	Calavera::Ref<Calavera::VertexArray> m_SquareVA;
 	Calavera::Ref<Calavera::Shader> m_FlatColorShader;
 
+	Calavera::Ref<Calavera::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 };
