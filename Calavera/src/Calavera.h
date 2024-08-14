@@ -18,6 +18,7 @@
 
 // --- Renderer ------------------------
 #include "Calavera/Renderer/Renderer.h"
+#include "Calavera/Renderer/Renderer2D.h"
 #include "Calavera/Renderer/RenderCommand.h"
 
 #include "Calavera/Renderer/Buffer.h"
