@@ -28,9 +28,4 @@
 #include "Calavera/Renderer/OrthographicCamera.h"
 // -------------------------------------
 
-// --- Entry Point ---------------------
-#include "Calavera/Core/EntryPoint.h"
-// -------------------------------------
-
-
 #endif // !CALAVERA_H
