@@ -3,7 +3,7 @@
 
 #include "Calavera/Renderer/Texture.h"
 
-#include "Calavera/Log.h"
+#include "Calavera/Core/Log.h"
 
 namespace Calavera {
 

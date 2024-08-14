@@ -1,7 +1,6 @@
 #ifndef APPLICATIONEVENT_H
 #define APPLICATIONEVENT_H
 
-#include "Calavera/Core.h"
 #include "Event.h"
 
 namespace Calavera {

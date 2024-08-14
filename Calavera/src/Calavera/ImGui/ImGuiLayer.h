@@ -1,7 +1,7 @@
 #ifndef IMGUILAYER_H
 #define IMGUILAYER_H
 
-#include "Calavera/Layer.h"
+#include "Calavera/Core/Layer.h"
 
 #include "Calavera/Events/ApplicationEvent.h"
 #include "Calavera/Events/KeyEvent.h"

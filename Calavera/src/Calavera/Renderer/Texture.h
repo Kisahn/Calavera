@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "Calavera/Core.h"
+#include "Calavera/Core/Core.h"
 
 namespace Calavera {
 

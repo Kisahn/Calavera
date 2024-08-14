@@ -2,7 +2,7 @@
 #define OPENGLCONTEXT_H
 
 #include "Calavera/Renderer/GraphicsContext.h"
-#include "Calavera/Log.h"
+#include "Calavera/Core/Log.h"
 
 struct GLFWwindow;
 

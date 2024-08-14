@@ -1,7 +1,7 @@
 #include "cvpch.h"
 #include "WindowsInput.h"
 
-#include "Calavera/Application.h"
+#include "Calavera/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Calavera {

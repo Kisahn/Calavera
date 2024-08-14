@@ -1,9 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
 #include "RenderCommand.h"
+
 #include "OrthographicCamera.h"
 #include "Shader.h"
 
@@ -13,6 +12,7 @@ namespace Calavera {
 	{
 		public:
 			static void Init();
+			static void OnWindowResize(uint32_t width, uint32_t height);
 
 			static void BeginScene(OrthographicCamera& camera);
 			static void EndScene();

@@ -3,16 +3,16 @@
 
 // For use by Calavera applications
 
-#include "Calavera/Application.h"
-#include "Calavera/Layer.h"
-#include "Calavera/Log.h"
+#include "Calavera/Core/Application.h"
+#include "Calavera/Core/Layer.h"
+#include "Calavera/Core/Log.h"
 
 #include "Calavera/Core/Timestep.h"
 
-#include "Calavera/Input.h"
-#include "Calavera/KeyCodes.h"
-#include "Calavera/MouseButtonCodes.h"
-#include "Calavera/OrthographicCameraController.h"
+#include "Calavera/Core/Input.h"
+#include "Calavera/Core/KeyCodes.h"
+#include "Calavera/Core/MouseButtonCodes.h"
+#include "Calavera/Renderer/OrthographicCameraController.h"
 
 #include "Calavera/ImGui/ImGuiLayer.h"
 
@@ -29,7 +29,7 @@
 // -------------------------------------
 
 // --- Entry Point ---------------------
-#include "Calavera/EntryPoint.h"
+#include "Calavera/Core/EntryPoint.h"
 // -------------------------------------
 
 

@@ -1,8 +1,6 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "Calavera/Log.h"
-
 namespace Calavera {
 
 	enum class ShaderDataType

@@ -1,7 +1,7 @@
 #ifndef WINDOWINPUT_H
 #define WINDOWSINPUT_H
 
-#include "Calavera/Input.h"
+#include "Calavera/Core/Input.h"
 
 namespace Calavera {
 

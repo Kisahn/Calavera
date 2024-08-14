@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Calavera/Core/Log.h"
+
 #ifdef CV_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

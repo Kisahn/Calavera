@@ -1,7 +1,7 @@
 #ifndef WINDOWSWINDOW_H
 #define WINDOWSWINDOW_H
 
-#include "Calavera/Window.h"
+#include "Calavera/Core/Window.h"
 #include "Calavera/Renderer/GraphicsContext.h"
 
 #include "GLFW/glfw3.h"

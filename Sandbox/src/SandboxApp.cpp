@@ -11,7 +11,7 @@ class ExampleLayer : public Calavera::Layer
 {
 	public:
 		ExampleLayer()
-			: Layer("Example"),m_CameraController(1280.0f / 720.0f, true)
+			: Layer("Example"),m_CameraController(1280.0f / 720.0f)
 		{
 			m_VertexArray.reset(Calavera::VertexArray::Create());
 
@@ -30,8 +30,8 @@ class ExampleLayer : public Calavera::Layer
 			vertexBuffer->SetLayout(layout);
 			m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-			Calavera::Ref<Calavera::IndexBuffer> indexBuffer;
 			uint32_t indices[3] = { 0, 1, 2 };
+			Calavera::Ref<Calavera::IndexBuffer> indexBuffer;
 			indexBuffer.reset(Calavera::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 			m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -149,9 +149,6 @@ class ExampleLayer : public Calavera::Layer
 			Calavera::Renderer::BeginScene(m_CameraController.GetCamera());
 
 			static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
-
-			glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
-			glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_FlatColorShader)->Bind();
 			std::dynamic_pointer_cast<Calavera::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);

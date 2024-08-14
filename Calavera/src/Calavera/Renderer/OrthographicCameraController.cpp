@@ -1,8 +1,8 @@
 #include "cvpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Calavera/Input.h"
-#include "Calavera/KeyCodes.h"
+#include "Calavera/Core/Input.h"
+#include "Calavera/Core/KeyCodes.h"
 
 namespace Calavera {
 
@@ -56,7 +56,7 @@ namespace Calavera {
 
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
-		m_AspectRatio -= (float)e.GetWidth() / (float)e.GetHeight();
+		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 
 		return false;

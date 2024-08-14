@@ -1,7 +1,7 @@
 #ifndef LAYERSTACK_H
 #define LAYERSTACK_H
 
-#include "Calavera/Core.h"
+#include "Calavera/Core/Core.h"
 #include "Layer.h"
 
 #include <vector>

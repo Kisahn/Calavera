@@ -8,9 +8,4 @@ namespace Calavera {
 	{
 	}
 
-	Layer::~Layer()
-	{
-
-	}
-
 }

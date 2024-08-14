@@ -1,6 +1,7 @@
 #ifndef VERTEXARRAY_H
 #define VERTEXARRAY_H
 
+#include <memory>
 #include "Calavera/Renderer/Buffer.h"
 
 namespace Calavera {

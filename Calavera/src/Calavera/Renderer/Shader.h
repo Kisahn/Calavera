@@ -2,8 +2,7 @@
 #define SHADER_H
 
 #include <string>
-
-#include "Calavera/Log.h"
+#include <unordered_map>
 
 namespace Calavera {
 
@@ -27,7 +26,7 @@ namespace Calavera {
 		public:
 			void Add(const Ref<Shader>& shader);
 			void Add(const std::string& name, const Ref<Shader>& shader);
-			Ref<Shader> Load(const std::string& filepath); // assets/Texture.glsl
+			Ref<Shader> Load(const std::string& filepath);
 			Ref<Shader> Load(const std::string& name, const std::string& filepath);
 
 			Ref<Shader> Get(const std::string& name);
