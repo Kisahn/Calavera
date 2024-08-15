@@ -13,11 +13,14 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	CV_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = Calavera::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	CV_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(Calavera::Timestep ts)
@@ -25,10 +28,7 @@ void Sandbox2D::OnUpdate(Calavera::Timestep ts)
 	CV_PROFILE_FUNCTION();
 
 	// Update
-	{
-		CV_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	// Render
 	{

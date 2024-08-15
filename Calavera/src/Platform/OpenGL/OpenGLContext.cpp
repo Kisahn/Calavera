@@ -14,6 +14,8 @@ namespace Calavera {
 
 	void OpenGLContext::Init()
 	{
+		CV_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		CV_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -35,6 +37,8 @@ namespace Calavera {
 
 	void OpenGLContext::SwapBuffers()
 	{
+		CV_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

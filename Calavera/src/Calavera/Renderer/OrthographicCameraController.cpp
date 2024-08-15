@@ -13,6 +13,8 @@ namespace Calavera {
 
 	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
+		CV_PROFILE_FUNCTION();
+
 		if (Input::IsKeyPressed(CV_KEY_Q))
 			m_CameraPosition.x -= m_CameraTranslationSpeed * ts;
 		else if (Input::IsKeyPressed(CV_KEY_D))
@@ -40,6 +42,8 @@ namespace Calavera {
 
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
+		CV_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(CV_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(CV_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
@@ -47,6 +51,8 @@ namespace Calavera {
 
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
+		CV_PROFILE_FUNCTION();
+
 		m_ZoomLevel -= e.GetYOffset() * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
@@ -56,6 +62,8 @@ namespace Calavera {
 
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
+		CV_PROFILE_FUNCTION();
+
 		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 
