@@ -7,13 +7,18 @@
 	int main(int argc, char** argv)
 	{
 		Calavera::Log::Init();
-		CV_CORE_WARN("Initialized Log!");
-		int a = 5;
-		CV_INFO("Hello! Var={0}", a);
 
+		CV_PROFILE_BEGIN_SESSION("Startup", "CalaveraProfile-Startup.json");
 		auto app = Calavera::CreateApplication();
+		CV_PROFILE_END_SESSION();
+
+		CV_PROFILE_BEGIN_SESSION("Runtime", "CalaveraProfile-Runtime.json");
 		app->Run();
+		CV_PROFILE_END_SESSION();
+
+		CV_PROFILE_BEGIN_SESSION("Shutdown", "CalaveraProfile-Shutdown.json");
 		delete app;
+		CV_PROFILE_END_SESSION();
 	}
 
 #endif // CV_PLATFORM_WINDOWS

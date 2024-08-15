@@ -16,6 +16,8 @@
 
 #include "Calavera/Core/Log.h"
 
+#include "Calavera/Debug/Instrumentor.h"
+
 #ifdef CV_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

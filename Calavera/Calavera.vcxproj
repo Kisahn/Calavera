@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Calavera\Debug\Instrumentor.h" />
     <ClInclude Include="src\Calavera\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Calavera.h" />
     <ClInclude Include="src\Calavera\Core\Application.h" />
