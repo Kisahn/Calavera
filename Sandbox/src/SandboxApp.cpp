@@ -25,7 +25,7 @@ class ExampleLayer : public Calavera::Layer
 			};
 
 			Calavera::Ref<Calavera::VertexBuffer> vertexBuffer;
-			vertexBuffer.reset(Calavera::VertexBuffer::Create(vertices, sizeof(vertices)));
+			vertexBuffer = Calavera::VertexBuffer::Create(vertices, sizeof(vertices));
 			Calavera::BufferLayout layout = {
 				{ Calavera::ShaderDataType::Float3, "a_Position" },
 				{ Calavera::ShaderDataType::Float4, "a_Color" }
@@ -35,7 +35,7 @@ class ExampleLayer : public Calavera::Layer
 
 			uint32_t indices[3] = { 0, 1, 2 };
 			Calavera::Ref<Calavera::IndexBuffer> indexBuffer;
-			indexBuffer.reset(Calavera::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+			indexBuffer = Calavera::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 			m_VertexArray->SetIndexBuffer(indexBuffer);
 
 			m_SquareVA = Calavera::VertexArray::Create();
@@ -48,7 +48,7 @@ class ExampleLayer : public Calavera::Layer
 			};
 
 			Calavera::Ref<Calavera::VertexBuffer> squareVB;
-			squareVB.reset(Calavera::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+			squareVB = Calavera::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 			squareVB->SetLayout({
 				{ Calavera::ShaderDataType::Float3, "a_Position" },
 				{ Calavera::ShaderDataType::Float2, "a_TextCoord" }
@@ -57,7 +57,7 @@ class ExampleLayer : public Calavera::Layer
 
 			uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 			Calavera::Ref<Calavera::IndexBuffer> squareIB;
-			squareIB.reset(Calavera::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+			squareIB = Calavera::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 			m_SquareVA->SetIndexBuffer(squareIB);
 
 			std::string vertexSrc = R"(
