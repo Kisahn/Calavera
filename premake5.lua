@@ -1,5 +1,5 @@
 workspace "Calavera"
-	architecture "x64"
+	architecture "x86_64"
 	startproject "Sandbox"
 
 	configurations
@@ -7,6 +7,11 @@ workspace "Calavera"
 		"Debug",
 		"Release",
 		"Dist"
+	}
+	
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -19,9 +24,12 @@ IncludeDir["ImGui"] = "Calavera/vendor/imgui"
 IncludeDir["glm"] = "Calavera/vendor/glm"
 IncludeDir["stb_image"] = "Calavera/vendor/stb_image"
 
-include "Calavera/vendor/GLFW"
-include "Calavera/vendor/Glad"
-include "Calavera/vendor/imgui"
+group "Dependencies"
+	include "Calavera/vendor/GLFW"
+	include "Calavera/vendor/Glad"
+	include "Calavera/vendor/imgui"
+
+group ""
 
 project "Calavera"
 	location "Calavera"
@@ -43,12 +51,13 @@ project "Calavera"
 		"%{prj.name}/vendor/stb_image/**.h",
 		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
-		"%{prj.name}/vendor/glm/glm/**.inl"
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -62,8 +71,8 @@ project "Calavera"
 		"%{IncludeDir.stb_image}"
 	}
 
-	links
-	{
+	links 
+	{ 
 		"GLFW",
 		"Glad",
 		"ImGui",
@@ -75,11 +84,8 @@ project "Calavera"
 
 		defines
 		{
-			"CV_PLATFORM_WINDOWS",
-			"CV_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
 		}
-	
+
 	filter "configurations:Debug"
 		defines "CV_DEBUG"
 		runtime "Debug"
@@ -126,12 +132,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"CV_PLATFORM_WINDOWS"
-		}
-	
+		
 	filter "configurations:Debug"
 		defines "CV_DEBUG"
 		runtime "Debug"

@@ -1,9 +1,9 @@
 #include "cvpch.h"
 #include "ImGuiLayer.h"
 
-#include "imgui.h"
-#include "examples/imgui_impl_glfw.h"
-#include "examples/imgui_impl_opengl3.h"
+#include <imgui.h>
+#include <examples/imgui_impl_glfw.h>
+#include <examples/imgui_impl_opengl3.h>
 
 #include "Calavera/Core/Application.h"
 
@@ -15,10 +15,6 @@ namespace Calavera {
 
 	ImGuiLayer::ImGuiLayer()
 		: Layer("ImGuiLayer")
-	{
-	}
-
-	ImGuiLayer::~ImGuiLayer()
 	{
 	}
 
@@ -64,6 +60,13 @@ namespace Calavera {
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
+	}
+
+	void ImGuiLayer::OnEvent(Event& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		e.Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+		e.Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
 	}
 
 	void ImGuiLayer::Begin()
