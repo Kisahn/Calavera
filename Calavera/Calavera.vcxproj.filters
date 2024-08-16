@@ -10,6 +10,9 @@
     <Filter Include="src\Calavera\Core">
       <UniqueIdentifier>{73C8E515-DFDE-E3AB-2856-6FCD94ABB433}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Calavera\Debug">
+      <UniqueIdentifier>{F131ABD2-DD15-6C28-4676-667B327956AA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Calavera\Events">
       <UniqueIdentifier>{BFC29B2B-2B24-7939-B491-BFEB20F2AFF8}</UniqueIdentifier>
     </Filter>
@@ -90,6 +93,9 @@
     <ClInclude Include="src\Calavera\Core\Window.h">
       <Filter>src\Calavera\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Calavera\Debug\Instrumentor.h">
+      <Filter>src\Calavera\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Calavera\Events\ApplicationEvent.h">
       <Filter>src\Calavera\Events</Filter>
     </ClInclude>
@@ -121,6 +127,9 @@
       <Filter>src\Calavera\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Calavera\Renderer\Renderer.h">
+      <Filter>src\Calavera\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\Renderer\Renderer2D.h">
       <Filter>src\Calavera\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Calavera\Renderer\RendererAPI.h">
@@ -1413,8 +1422,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Calavera\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Calavera\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Core\Application.cpp">
@@ -1448,6 +1455,9 @@
       <Filter>src\Calavera\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Calavera\Renderer\Renderer.cpp">
+      <Filter>src\Calavera\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Calavera\Renderer\Renderer2D.cpp">
       <Filter>src\Calavera\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Calavera\Renderer\RendererAPI.cpp">
@@ -1492,6 +1502,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Calavera\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

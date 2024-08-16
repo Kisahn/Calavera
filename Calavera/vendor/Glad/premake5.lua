@@ -3,11 +3,11 @@ project "Glad"
     language "C"
     staticruntime "on"
     
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files
-	{
+    files
+    {
         "include/glad/glad.h",
         "include/KHR/khrplatform.h",
         "src/glad.c"
@@ -18,13 +18,13 @@ project "Glad"
         "include"
     }
     
-	filter "system:windows"
+    filter "system:windows"
         systemversion "latest"
 
     filter "configurations:Debug"
-		runtime "Debug"
-		symbols "on"
+        runtime "Debug"
+        symbols "on"
 
-	filter "configurations:Release"
-		runtime "Release"
-		optimize "on"
+    filter "configurations:Release"
+        runtime "Release"
+        optimize "on"
