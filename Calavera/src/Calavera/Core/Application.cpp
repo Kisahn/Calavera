@@ -54,6 +54,11 @@ namespace Calavera {
 		layer->OnAttach();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		CV_PROFILE_FUNCTION();
