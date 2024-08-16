@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Core.h"
+#include "Calavera/Core/Base.h"
 
 #include "Window.h"
 #include "Calavera/Core/LayerStack.h"

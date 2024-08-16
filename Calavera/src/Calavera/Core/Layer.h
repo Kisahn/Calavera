@@ -1,7 +1,7 @@
 #ifndef LAYER_H
 #define LAYER_H
 
-#include "Calavera/Core/Core.h"
+#include "Calavera/Core/Base.h"
 #include "Calavera/Core/Timestep.h"
 #include "Calavera/Events/Event.h"
 

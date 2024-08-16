@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "Calavera/Core/Core.h"
+#include "Calavera/Core/Base.h"
 
 namespace Calavera {
 

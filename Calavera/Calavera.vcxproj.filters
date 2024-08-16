@@ -63,7 +63,7 @@
     <ClInclude Include="src\Calavera\Core\Application.h">
       <Filter>src\Calavera\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Calavera\Core\Core.h">
+    <ClInclude Include="src\Calavera\Core\Base.h">
       <Filter>src\Calavera\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Calavera\Core\EntryPoint.h">

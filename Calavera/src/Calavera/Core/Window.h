@@ -3,7 +3,7 @@
 
 #include "cvpch.h"
 
-#include "Calavera/Core/Core.h"
+#include "Calavera/Core/Base.h"
 #include "Calavera/Events/Event.h"
 
 namespace Calavera {

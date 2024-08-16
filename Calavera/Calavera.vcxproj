@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\Calavera.h" />
     <ClInclude Include="src\Calavera\Core\Application.h" />
-    <ClInclude Include="src\Calavera\Core\Core.h" />
+    <ClInclude Include="src\Calavera\Core\Base.h" />
     <ClInclude Include="src\Calavera\Core\EntryPoint.h" />
     <ClInclude Include="src\Calavera\Core\Input.h" />
     <ClInclude Include="src\Calavera\Core\KeyCodes.h" />
