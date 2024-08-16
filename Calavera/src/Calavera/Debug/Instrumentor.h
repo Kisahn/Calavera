@@ -130,12 +130,33 @@ namespace Calavera {
 	};
 }
 
-#define CV_PROFILE 1
+#define CV_PROFILE 0
 #if CV_PROFILE
+	// Resolve which function signature macro will be used. Note that this only
+	// is resolved when the (pre)compiler starts, so the syntax highlighting
+	// could mark the wrong one in your editor!
+	#if defined(__GNUC__) || (defined(__MWERKS__) && (__MWERKS__ >= 0x3000)) || (defined(__ICC) && (__ICC >= 600)) || defined(__ghs__)
+		#define CV_FUNC_SIG __PRETTY_FUNCTION__
+	#elif defined(__DMC__) && (__DMC__ >= 0x810)
+		#define CV_FUNC_SIG __PRETTY_FUNCTION__
+	#elif defined(__FUNCSIG__)
+		#define CV_FUNC_SIG __FUNCSIG__
+	#elif (defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 600)) || (defined(__IBMCPP__) && (__IBMCPP__ >= 500))
+		#define CV_FUNC_SIG __FUNCTION__
+	#elif defined(__BORLANDC__) && (__BORLANDC__ >= 0x550)
+		#define CV_FUNC_SIG __FUNC__
+	#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901)
+		#define CV_FUNC_SIG __func__
+	#elif defined(__cplusplus) && (__cplusplus >= 201103)
+		#define CV_FUNC_SIG __func__
+	#else
+		#define CV_FUNC_SIG "CV_FUNC_SIG unknown!"
+	#endif
+
 	#define CV_PROFILE_BEGIN_SESSION(name, filepath) ::Calavera::Instrumentor::Get().BeginSession(name, filepath)
 	#define CV_PROFILE_END_SESSION() ::Calavera::Instrumentor::Get().EndSession()
 	#define CV_PROFILE_SCOPE(name) ::Calavera::InstrumentationTimer timer##__LINE__(name);
-	#define CV_PROFILE_FUNCTION() CV_PROFILE_SCOPE(__FUNCSIG__)
+	#define CV_PROFILE_FUNCTION() CV_PROFILE_SCOPE(CV__FUNC_SIG__)
 #else
 	#define CV_PROFILE_BEGIN_SESSION(name, filepath)
 	#define CV_PROFILE_END_SESSION()
