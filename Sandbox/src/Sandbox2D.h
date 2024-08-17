@@ -22,7 +22,6 @@ private:
 	// Temp
 	Calavera::Ref<Calavera::VertexArray> m_SquareVA;
 	Calavera::Ref<Calavera::Shader> m_FlatColorShader;
-	Calavera::Ref<Calavera::Framebuffer> m_Framebuffer;
 
 	Calavera::Ref<Calavera::Texture2D> m_CheckerboardTexture;
 

@@ -28,7 +28,6 @@ group "Dependencies"
 	include "Calavera/vendor/GLFW"
 	include "Calavera/vendor/Glad"
 	include "Calavera/vendor/imgui"
-
 group ""
 
 project "Calavera"
@@ -133,6 +132,53 @@ project "Sandbox"
 	filter "system:windows"
 		systemversion "latest"
 		
+	filter "configurations:Debug"
+		defines "CV_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "CV_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "CV_DIST"
+		runtime "Release"
+		optimize "on"
+
+project "Calavera-Editor"
+	location "Calavera-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Calavera/vendor/spdlog/include",
+		"Calavera/src",
+		"Calavera/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Calavera"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
 	filter "configurations:Debug"
 		defines "CV_DEBUG"
 		runtime "Debug"

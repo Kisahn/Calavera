@@ -17,7 +17,7 @@ namespace Calavera {
 	class Application
 	{
 		public:
-			Application();
+			Application(const std::string& name = "Calavera App");
 			virtual ~Application();
 
 			void Run();
