@@ -84,7 +84,7 @@
     <ClInclude Include="src\Calavera\Core\Log.h">
       <Filter>src\Calavera\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Calavera\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\Calavera\Core\MouseCodes.h">
       <Filter>src\Calavera\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Calavera\Core\Timestep.h">
@@ -167,9 +167,6 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1442,6 +1439,9 @@
     <ClCompile Include="src\Calavera\Core\Log.cpp">
       <Filter>src\Calavera\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Calavera\Core\Window.cpp">
+      <Filter>src\Calavera\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Calavera\ImGui\ImGuiBuild.cpp">
       <Filter>src\Calavera\ImGui</Filter>
     </ClCompile>
@@ -1514,6 +1514,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Calavera\Core\Window.cpp" />
   </ItemGroup>
 </Project>

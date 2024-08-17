@@ -1,6 +1,6 @@
 workspace "Calavera"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "Calavera-Editor"
 
 	configurations
 	{

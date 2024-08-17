@@ -156,7 +156,7 @@
     <ClInclude Include="src\Calavera\Core\Layer.h" />
     <ClInclude Include="src\Calavera\Core\LayerStack.h" />
     <ClInclude Include="src\Calavera\Core\Log.h" />
-    <ClInclude Include="src\Calavera\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Calavera\Core\MouseCodes.h" />
     <ClInclude Include="src\Calavera\Core\Timestep.h" />
     <ClInclude Include="src\Calavera\Core\Window.h" />
     <ClInclude Include="src\Calavera\Debug\Instrumentor.h" />
@@ -184,7 +184,6 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cvpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />

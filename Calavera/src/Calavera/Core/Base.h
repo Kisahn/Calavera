@@ -1,5 +1,5 @@
-#ifndef CORE_H
-#define CORE_H
+#ifndef BASE_H
+#define BASE_H
 
 #include <memory>
 
@@ -95,4 +95,4 @@ namespace Calavera {
 
 }
 
-#endif // !CORE_H
+#endif // !BASE_H
