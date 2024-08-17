@@ -5,7 +5,7 @@
 
 namespace Calavera {
 
-	class CALAVERA_API KeyEvent : public Event
+	class  KeyEvent : public Event
 	{
 		public:
 			inline int GetKeyCode() const { return m_KeyCode; }
@@ -19,7 +19,7 @@ namespace Calavera {
 			int m_KeyCode;
 	};
 
-	class CALAVERA_API KeyPressedEvent : public KeyEvent
+	class  KeyPressedEvent : public KeyEvent
 	{
 		public:
 			KeyPressedEvent(int keycode, int repeatCount)
@@ -40,7 +40,7 @@ namespace Calavera {
 			int m_RepeatCount;
 	};
 
-	class CALAVERA_API KeyReleasedEvent : public KeyEvent
+	class  KeyReleasedEvent : public KeyEvent
 	{
 		public:
 			KeyReleasedEvent(int keycode)
@@ -56,7 +56,7 @@ namespace Calavera {
 			EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class CALAVERA_API KeyTypedEvent : public KeyEvent
+	class  KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)

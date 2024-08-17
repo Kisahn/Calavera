@@ -23,6 +23,7 @@ IncludeDir["Glad"] = "Calavera/vendor/Glad/include"
 IncludeDir["ImGui"] = "Calavera/vendor/imgui"
 IncludeDir["glm"] = "Calavera/vendor/glm"
 IncludeDir["stb_image"] = "Calavera/vendor/stb_image"
+IncludeDir["entt"] = "Calavera/vendor/entt/include"
 
 group "Dependencies"
 	include "Calavera/vendor/GLFW"
@@ -67,7 +68,8 @@ project "Calavera"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 	}
 
 	links 
@@ -168,7 +170,8 @@ project "Calavera-Editor"
 		"Calavera/vendor/spdlog/include",
 		"Calavera/src",
 		"Calavera/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	links

@@ -16,6 +16,9 @@
 
 #include "Calavera/ImGui/ImGuiLayer.h"
 
+#include "Calavera/Scene/Scene.h"
+#include "Calavera/Scene/Components.h"
+
 // --- Renderer ------------------------
 #include "Calavera/Renderer/Renderer.h"
 #include "Calavera/Renderer/Renderer2D.h"

@@ -8,7 +8,7 @@
 
 namespace Calavera {
 
-	class CALAVERA_API LayerStack
+	class LayerStack
 	{
 		public:
 			LayerStack();
