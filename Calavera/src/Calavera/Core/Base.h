@@ -63,7 +63,6 @@
 	#define CV_ENABLE_ASSERTS
 #endif
 
-
 #ifdef CV_ENABLE_ASSERTS
 	#define CV_ASSERT(x, ...) { if(!(x)) { CV_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define CV_CORE_ASSERT(x, ...) { if(!(x)) { CV_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
