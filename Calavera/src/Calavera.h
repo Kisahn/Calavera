@@ -18,6 +18,7 @@
 
 #include "Calavera/Scene/Scene.h"
 #include "Calavera/Scene/Entity.h"
+#include "Calavera/Scene/ScriptableEntity.h"
 #include "Calavera/Scene/Components.h"
 
 // --- Renderer ------------------------
