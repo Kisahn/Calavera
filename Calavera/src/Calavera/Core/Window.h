@@ -1,7 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "cvpch.h"
+#include <sstream>
 
 #include "Calavera/Core/Base.h"
 #include "Calavera/Events/Event.h"

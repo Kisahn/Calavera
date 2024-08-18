@@ -1431,6 +1431,7 @@
     <ClInclude Include="src\Calavera\Renderer\Camera.h" />
     <ClInclude Include="src\Calavera\Scene\SceneCamera.h" />
     <ClInclude Include="src\Calavera\Scene\ScriptableEntity.h" />
+    <ClInclude Include="src\Calavera\Core\PlatformDetection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Core\Application.cpp">
@@ -1523,5 +1524,6 @@
     <ClCompile Include="src\Calavera\Scene\Scene.cpp" />
     <ClCompile Include="src\Calavera\Scene\Entity.cpp" />
     <ClCompile Include="src\Calavera\Scene\SceneCamera.cpp" />
+    <ClCompile Include="src\Calavera\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

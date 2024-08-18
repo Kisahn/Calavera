@@ -7,6 +7,10 @@
 #include <fstream>
 
 #include <thread>
+#include <mutex>
+#include <sstream>
+
+#include "Calavera/Core/Log.h"
 
 namespace Calavera {
 
