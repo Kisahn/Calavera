@@ -40,32 +40,34 @@ namespace Calavera {
 
 		class CameraController : public ScriptableEntity
 		{
-		public:
-			void OnCreate()
-			{
-				auto& transform = GetComponent<TransformComponent>().Transform;
-				transform[3][0] = rand() % 10 - 5.0f;
-			}
 
-			void OnDestroy()
-			{
-			}
+			public:
+				virtual void OnCreate() override
+				{
+					auto& transform = GetComponent<TransformComponent>().Transform;
+					transform[3][0] = rand() % 10 - 5.0f;
+				}
 
-			void OnUpdate(Timestep ts)
-			{
-				auto& transform = GetComponent<TransformComponent>().Transform;
+				virtual void OnDestroy() override
+				{
+				}
 
-				float speed = 5.0f;
+				virtual void OnUpdate(Timestep ts) override
+				{
+					auto& transform = GetComponent<TransformComponent>().Transform;
 
-				if (Input::IsKeyPressed(Key::Q))
-					transform[3][0] -= speed * ts;
-				if (Input::IsKeyPressed(Key::D))
-					transform[3][0] += speed * ts;
-				if (Input::IsKeyPressed(Key::Z))
-					transform[3][1] += speed * ts;
-				if (Input::IsKeyPressed(Key::S))
-					transform[3][1] -= speed * ts;
-			}
+					float speed = 5.0f;
+
+					if (Input::IsKeyPressed(Key::Q))
+						transform[3][0] -= speed * ts;
+					if (Input::IsKeyPressed(Key::D))
+						transform[3][0] += speed * ts;
+					if (Input::IsKeyPressed(Key::Z))
+						transform[3][1] += speed * ts;
+					if (Input::IsKeyPressed(Key::S))
+						transform[3][1] -= speed * ts;
+				}
+
 		};
 
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
