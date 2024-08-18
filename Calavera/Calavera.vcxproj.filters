@@ -1429,6 +1429,7 @@
     <ClInclude Include="src\Calavera\Scene\Scene.h" />
     <ClInclude Include="src\Calavera\Scene\Entity.h" />
     <ClInclude Include="src\Calavera\Renderer\Camera.h" />
+    <ClInclude Include="src\Calavera\Scene\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Core\Application.cpp">
@@ -1520,5 +1521,6 @@
     </ClCompile>
     <ClCompile Include="src\Calavera\Scene\Scene.cpp" />
     <ClCompile Include="src\Calavera\Scene\Entity.cpp" />
+    <ClCompile Include="src\Calavera\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>
