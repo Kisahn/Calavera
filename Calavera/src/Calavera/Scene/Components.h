@@ -3,6 +3,8 @@
 
 #include <glm/glm.hpp>
 
+#include "Calavera/Renderer/Camera.h"
+
 namespace Calavera {
 
 	struct TagComponent
@@ -36,6 +38,17 @@ namespace Calavera {
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const glm::vec4& color)
 			: Color(color) {}
+	};
+
+	struct CameraComponent
+	{
+		Calavera::Camera Camera;
+		bool Primary = true; // TODO: think about moving to Scene
+
+		CameraComponent() = default;
+		CameraComponent(const CameraComponent&) = default;
+		CameraComponent(const glm::mat4& projection)
+			: Camera(projection) {}
 	};
 
 }

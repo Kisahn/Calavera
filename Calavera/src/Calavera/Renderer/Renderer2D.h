@@ -1,9 +1,11 @@
 #ifndef RENDERER2D_H
 #define RENDERER2D_H
 
-#include "OrthographicCamera.h"
+#include "Calavera/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Calavera/Renderer/Texture.h"
+
+#include "Calavera/Renderer/Camera.h"
 
 namespace Calavera {
 
@@ -14,7 +16,8 @@ namespace Calavera {
 			static void Init();
 			static void Shutdown();
 
-			static void BeginScene(const OrthographicCamera& camera);
+			static void BeginScene(const Camera& camera, const glm::mat4& transform);
+			static void BeginScene(const OrthographicCamera& camera); // TODO: Remove
 			static void EndScene();
 			static void Flush();
 

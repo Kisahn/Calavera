@@ -1428,6 +1428,7 @@
     <ClInclude Include="src\Calavera\Scene\Components.h" />
     <ClInclude Include="src\Calavera\Scene\Scene.h" />
     <ClInclude Include="src\Calavera\Scene\Entity.h" />
+    <ClInclude Include="src\Calavera\Renderer\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Core\Application.cpp">
