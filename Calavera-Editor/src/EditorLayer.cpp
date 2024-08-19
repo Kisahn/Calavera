@@ -32,6 +32,8 @@ namespace Calavera {
 
 		m_ActiveScene = CreateRef<Scene>();
 
+		m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
+
 #if 0
 		// Entity
 		auto square = m_ActiveScene->CreateEntity("Green Square");
@@ -51,34 +53,32 @@ namespace Calavera {
 
 		class CameraController : public ScriptableEntity
 		{
+		public:
+			virtual void OnCreate() override
+			{
+				auto& translation = GetComponent<TransformComponent>().Translation;
+				translation.x = rand() % 10 - 5.0f;
+			}
 
-			public:
-				virtual void OnCreate() override
-				{
-					auto& translation = GetComponent<TransformComponent>().Translation;
-					translation.x = rand() % 10 - 5.0f;
-				}
+			virtual void OnDestroy() override
+			{
+			}
 
-				virtual void OnDestroy() override
-				{
-				}
+			virtual void OnUpdate(Timestep ts) override
+			{
+				auto& translation = GetComponent<TransformComponent>().Translation;
 
-				virtual void OnUpdate(Timestep ts) override
-				{
-					auto& translation = GetComponent<TransformComponent>().Translation;
+				float speed = 5.0f;
 
-					float speed = 5.0f;
-
-					if (Input::IsKeyPressed(Key::Q))
-						translation.x -= speed * ts;
-					if (Input::IsKeyPressed(Key::D))
-						translation.x += speed * ts;
-					if (Input::IsKeyPressed(Key::Z))
-						translation.y += speed * ts;
-					if (Input::IsKeyPressed(Key::S))
-						translation.y -= speed * ts;
-				}
-
+				if (Input::IsKeyPressed(Key::A))
+					translation.x -= speed * ts;
+				if (Input::IsKeyPressed(Key::D))
+					translation.x += speed * ts;
+				if (Input::IsKeyPressed(Key::W))
+					translation.y += speed * ts;
+				if (Input::IsKeyPressed(Key::S))
+					translation.y -= speed * ts;
+			}
 		};
 
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
@@ -104,13 +104,15 @@ namespace Calavera {
 		{
 			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 			m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
-
+			m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
 			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		}
 
 		// Update
 		if (m_ViewportFocused)
 			m_CameraController.OnUpdate(ts);
+
+		m_EditorCamera.OnUpdate(ts);
 
 		// Render
 		Renderer2D::ResetStats();
@@ -119,7 +121,7 @@ namespace Calavera {
 		RenderCommand::Clear();
 
 		// Update scene
-		m_ActiveScene->OnUpdate(ts);
+		m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
 
 		m_Framebuffer->Unbind();
 	}
@@ -184,7 +186,7 @@ namespace Calavera {
 			{
 				// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 				// which we can't undo at the moment without finer window depth/z control.
-				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
+				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);1
 				if (ImGui::MenuItem("New", "Ctrl+N"))
 					NewScene();
 
@@ -226,7 +228,7 @@ namespace Calavera {
 
 		uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
 		ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-		
+
 		// Gizmos
 		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
 		if (selectedEntity && m_GizmoType != -1)
@@ -239,10 +241,16 @@ namespace Calavera {
 			ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, windowWidth, windowHeight);
 
 			// Camera
-			auto cameraEntity = m_ActiveScene->GetPrimaryCameraEntity();
-			const auto& camera = cameraEntity.GetComponent<CameraComponent>().Camera;
-			const glm::mat4& cameraProjection = camera.GetProjection();
-			glm::mat4 cameraView = glm::inverse(cameraEntity.GetComponent<TransformComponent>().GetTransform());
+
+			// Runtime camera from entity
+			// auto cameraEntity = m_ActiveScene->GetPrimaryCameraEntity();
+			// const auto& camera = cameraEntity.GetComponent<CameraComponent>().Camera;
+			// const glm::mat4& cameraProjection = camera.GetProjection();
+			// glm::mat4 cameraView = glm::inverse(cameraEntity.GetComponent<TransformComponent>().GetTransform());
+
+			// Editor camera
+			const glm::mat4& cameraProjection = m_EditorCamera.GetProjection();
+			glm::mat4 cameraView = m_EditorCamera.GetViewMatrix();
 
 			// Entity transform
 			auto& tc = selectedEntity.GetComponent<TransformComponent>();
@@ -273,6 +281,7 @@ namespace Calavera {
 			}
 		}
 
+
 		ImGui::End();
 		ImGui::PopStyleVar();
 
@@ -282,6 +291,7 @@ namespace Calavera {
 	void EditorLayer::OnEvent(Event& e)
 	{
 		m_CameraController.OnEvent(e);
+		m_EditorCamera.OnEvent(e);
 
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<KeyPressedEvent>(CV_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
@@ -297,41 +307,41 @@ namespace Calavera {
 		bool shift = Input::IsKeyPressed(Key::LeftShift) || Input::IsKeyPressed(Key::RightShift);
 		switch (e.GetKeyCode())
 		{
-			case Key::N:
-			{
-				if (control)
-					NewScene();
+		case Key::N:
+		{
+			if (control)
+				NewScene();
 
-				break;
-			}
-			case Key::O:
-			{
-				if (control)
-					OpenScene();
+			break;
+		}
+		case Key::O:
+		{
+			if (control)
+				OpenScene();
 
-				break;
-			}
-			case Key::S:
-			{
-				if (control && shift)
-					SaveSceneAs();
+			break;
+		}
+		case Key::S:
+		{
+			if (control && shift)
+				SaveSceneAs();
 
-				break;
-			}
+			break;
+		}
 
-			// Gizmos
-			case Key::A:
-				m_GizmoType = -1;
-				break;
-			case Key::Z:
-				m_GizmoType = ImGuizmo::OPERATION::TRANSLATE;
-				break;
-			case Key::E:
-				m_GizmoType = ImGuizmo::OPERATION::ROTATE;
-				break;
-			case Key::R:
-				m_GizmoType = ImGuizmo::OPERATION::SCALE;
-				break;
+		// Gizmos
+		case Key::A:
+			m_GizmoType = -1;
+			break;
+		case Key::Z:
+			m_GizmoType = ImGuizmo::OPERATION::TRANSLATE;
+			break;
+		case Key::E:
+			m_GizmoType = ImGuizmo::OPERATION::ROTATE;
+			break;
+		case Key::R:
+			m_GizmoType = ImGuizmo::OPERATION::SCALE;
+			break;
 		}
 	}
 
@@ -344,25 +354,25 @@ namespace Calavera {
 
 	void EditorLayer::OpenScene()
 	{
-		std::string filepath = FileDialogs::OpenFile("Calavera Scene (*.calavera)\0*.calavera\0");
-		if (!filepath.empty())
+		std::optional<std::string> filepath = FileDialogs::OpenFile("Calavera Scene (*.calevera)\0*.calavera\0");
+		if (filepath)
 		{
 			m_ActiveScene = CreateRef<Scene>();
 			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 			m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
 			SceneSerializer serializer(m_ActiveScene);
-			serializer.Deserialize(filepath);
+			serializer.Deserialize(*filepath);
 		}
 	}
 
 	void EditorLayer::SaveSceneAs()
 	{
-		std::string filepath = FileDialogs::SaveFile("Calavera Scene (*.calavera)\0*.calavera\0");
-		if (!filepath.empty())
+		std::optional<std::string> filepath = FileDialogs::SaveFile("Calavera Scene (*.calavera)\0*.calavera\0");
+		if (filepath)
 		{
 			SceneSerializer serializer(m_ActiveScene);
-			serializer.Serialize(filepath);
+			serializer.Serialize(*filepath);
 		}
 	}
 

@@ -1,12 +1,16 @@
-#ifndef SANDBOX2D_H
-#define SANDBOX2D_H
+#ifndef EDITORLAYER_H
+#define EDITORLAYER_H
+
+#include <optional>
 
 #include "Calavera.h"
 #include "Panels/SceneHierarchyPanel.h"
 
+#include "Calavera/Renderer/EditorCamera.h"
+
 namespace Calavera {
 
-	class EditorLayer : public Calavera::Layer
+	class EditorLayer : public Layer
 	{
 	public:
 		EditorLayer();
@@ -18,15 +22,14 @@ namespace Calavera {
 		void OnUpdate(Timestep ts) override;
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
-
 	private:
 		bool OnKeyPressed(KeyPressedEvent& e);
 
 		void NewScene();
 		void OpenScene();
 		void SaveSceneAs();
-
-		OrthographicCameraController m_CameraController;
+	private:
+		Calavera::OrthographicCameraController m_CameraController;
 
 		// Temp
 		Ref<VertexArray> m_SquareVA;
@@ -40,6 +43,8 @@ namespace Calavera {
 
 		bool m_PrimaryCamera = true;
 
+		EditorCamera m_EditorCamera;
+
 		Ref<Texture2D> m_CheckerboardTexture;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
@@ -51,10 +56,9 @@ namespace Calavera {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
-
 	};
 
 }
 
-#endif // !SANDBOX2D_H
+#endif // !EDITORLAYER_H
 
