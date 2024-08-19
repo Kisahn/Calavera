@@ -19,7 +19,8 @@ project "Calavera-Editor"
 		"%{wks.location}/Calavera/src",
 		"%{wks.location}/Calavera/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links

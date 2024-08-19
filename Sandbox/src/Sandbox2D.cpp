@@ -75,7 +75,7 @@ void Sandbox2D::OnImGuiRender()
     ImGui::Text("Draw Calls: %d:", stats.DrawCalls);
     ImGui::Text("Quad: %d:", stats.QuadCount);
     ImGui::Text("Vertices: %d:", stats.GetTotalVertexCount());
-    ImGui::Text("Indices: %d:", stats.GetTotalIndexcount());
+    ImGui::Text("Indices: %d:", stats.GetTotalIndexCount());
 
     ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
     ImGui::End();
