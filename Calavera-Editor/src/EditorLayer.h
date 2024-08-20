@@ -12,53 +12,57 @@ namespace Calavera {
 
 	class EditorLayer : public Layer
 	{
-	public:
-		EditorLayer();
-		virtual ~EditorLayer() = default;
 
-		virtual void OnAttach() override;
-		virtual void OnDetach() override;
+		public:
+			EditorLayer();
+			virtual ~EditorLayer() = default;
 
-		void OnUpdate(Timestep ts) override;
-		virtual void OnImGuiRender() override;
-		void OnEvent(Event& e) override;
-	private:
-		bool OnKeyPressed(KeyPressedEvent& e);
+			virtual void OnAttach() override;
+			virtual void OnDetach() override;
 
-		void NewScene();
-		void OpenScene();
-		void SaveSceneAs();
-	private:
-		Calavera::OrthographicCameraController m_CameraController;
+			void OnUpdate(Timestep ts) override;
+			virtual void OnImGuiRender() override;
+			void OnEvent(Event& e) override;
 
-		// Temp
-		Ref<VertexArray> m_SquareVA;
-		Ref<Shader> m_FlatColorShader;
-		Ref<Framebuffer> m_Framebuffer;
+		private:
+			bool OnKeyPressed(KeyPressedEvent& e);
+			bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
-		Ref<Scene> m_ActiveScene;
-		Entity m_SquareEntity;
-		Entity m_CameraEntity;
-		Entity m_SecondCamera;
+			void NewScene();
+			void OpenScene();
+			void SaveSceneAs();
 
-		Entity m_HoveredEntity;
+			Calavera::OrthographicCameraController m_CameraController;
 
-		bool m_PrimaryCamera = true;
+			// Temp
+			Ref<VertexArray> m_SquareVA;
+			Ref<Shader> m_FlatColorShader;
+			Ref<Framebuffer> m_Framebuffer;
 
-		EditorCamera m_EditorCamera;
+			Ref<Scene> m_ActiveScene;
+			Entity m_SquareEntity;
+			Entity m_CameraEntity;
+			Entity m_SecondCamera;
 
-		Ref<Texture2D> m_CheckerboardTexture;
+			Entity m_HoveredEntity;
 
-		bool m_ViewportFocused = false, m_ViewportHovered = false;
-		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
-		glm::vec2 m_ViewportBounds[2];
+			bool m_PrimaryCamera = true;
 
-		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+			EditorCamera m_EditorCamera;
 
-		int m_GizmoType = -1;
+			Ref<Texture2D> m_CheckerboardTexture;
 
-		// Panels
-		SceneHierarchyPanel m_SceneHierarchyPanel;
+			bool m_ViewportFocused = false, m_ViewportHovered = false;
+			glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
+			glm::vec2 m_ViewportBounds[2];
+
+			glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+			int m_GizmoType = -1;
+
+			// Panels
+			SceneHierarchyPanel m_SceneHierarchyPanel;
+
 	};
 
 }
