@@ -14,23 +14,17 @@
 	#else
 		#error "Platform doesn't support debugbreak yet!"
 	#endif
-	#define CV_ENABLE_ASSERTS
+		#define CV_ENABLE_ASSERTS
 #else
 	#define CV_DEBUGBREAK()
 #endif
 
-// TODO: Make this macro able to take in no arguments except condition
-#ifdef CV_ENABLE_ASSERTS
-	#define CV_ASSERT(x, ...) { if(!(x)) { CV_ERROR("Assertion Failed: {0}", __VA_ARGS__); CV_DEBUGBREAK(); } }
-	#define CV_CORE_ASSERT(x, ...) { if(!(x)) { CV_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); CV_DEBUGBREAK(); } }
-#else
-	#define CV_ASSERT(x, ...)
-	#define CV_CORE_ASSERT(x, ...)
-#endif
+#define CV_EXPAND_MACRO(x) x
+#define CV_STRINGIFY_MACRO(x) #x
 
 #define BIT(x) (1 << x)
 
-#define CV_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+#define CV_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 namespace Calavera {
 
@@ -51,5 +45,8 @@ namespace Calavera {
 	}
 
 }
+
+#include "Calavera/Core/Log.h"
+#include "Calavera/Core/Assert.h"
 
 #endif // !BASE_H
