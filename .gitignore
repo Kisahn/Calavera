@@ -31,6 +31,10 @@
 *.out
 *.app
 
+# Directories
 bin/
 bin-int/
 .vs/
+
+# VS Files
+*.user
