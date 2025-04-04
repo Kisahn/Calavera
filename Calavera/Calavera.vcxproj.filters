@@ -4,6 +4,9 @@
     <Filter Include="Calavera">
       <UniqueIdentifier>{44E4C97E-30B1-248A-59CA-123245F65918}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Calavera\Events">
+      <UniqueIdentifier>{A89B3311-1427-A1D5-1D38-24CA8942FDD5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Calavera.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Calavera\EntryPoint.h">
       <Filter>Calavera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\Events\ApplicationEvent.h">
+      <Filter>Calavera\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\Events\Event.h">
+      <Filter>Calavera\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\Events\KeyEvent.h">
+      <Filter>Calavera\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\Events\MouseEvent.h">
+      <Filter>Calavera\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Calavera\Log.h">
       <Filter>Calavera</Filter>
