@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Calavera {
 
 	class CALAVERA_API WindowResizeEvent : public Event

@@ -18,6 +18,9 @@ project "Calavera"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "cvpch.h"
+	pchsource "Calavera/src/cvpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

@@ -1,9 +1,7 @@
 #pragma once
 
+#include "cvpch.h"
 #include "Calavera/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Calavera {
 
