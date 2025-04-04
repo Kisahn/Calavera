@@ -10,6 +10,12 @@ workspace "Calavera"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
+
+include "Calavera/vendor/GLFW"
+
 project "Calavera"
 	location "Calavera"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "Calavera"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -55,15 +68,11 @@ project "Calavera"
 
 	filter "configurations:Release"
 		defines "CV_RELEASE"
-		symbols "On"
+		optimize "On"
 
 	filter "configurations:Dist"
 		defines "CV_DIST"
-		symbols "On"
-
-	filter "action:vs*"
-        buildoptions { "/utf-8" }
-
+		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
@@ -106,11 +115,8 @@ project "Sandbox"
 
 	filter "configurations:Release"
 		defines "CV_RELEASE"
-		symbols "On"
+		optimize "On"
 
 	filter "configurations:Dist"
 		defines "CV_DIST"
-		symbols "On"
-
-	filter "action:vs*"
-        buildoptions { "/utf-8" }
+		optimize "On"
