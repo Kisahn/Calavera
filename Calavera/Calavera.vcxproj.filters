@@ -37,6 +37,12 @@
     <ClInclude Include="src\Calavera\Events\MouseEvent.h">
       <Filter>Calavera\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Calavera\Layer.h">
+      <Filter>Calavera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Calavera\LayerStack.h">
+      <Filter>Calavera</Filter>
+    </ClInclude>
     <ClInclude Include="src\Calavera\Log.h">
       <Filter>Calavera</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Application.cpp">
+      <Filter>Calavera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Calavera\Layer.cpp">
+      <Filter>Calavera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Calavera\LayerStack.cpp">
       <Filter>Calavera</Filter>
     </ClCompile>
     <ClCompile Include="src\Calavera\Log.cpp">

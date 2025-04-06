@@ -83,10 +83,10 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -111,6 +111,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -138,6 +139,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -161,6 +163,8 @@
     <ClInclude Include="src\Calavera\Events\Event.h" />
     <ClInclude Include="src\Calavera\Events\KeyEvent.h" />
     <ClInclude Include="src\Calavera\Events\MouseEvent.h" />
+    <ClInclude Include="src\Calavera\Layer.h" />
+    <ClInclude Include="src\Calavera\LayerStack.h" />
     <ClInclude Include="src\Calavera\Log.h" />
     <ClInclude Include="src\Calavera\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -168,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Application.cpp" />
+    <ClCompile Include="src\Calavera\Layer.cpp" />
+    <ClCompile Include="src\Calavera\LayerStack.cpp" />
     <ClCompile Include="src\Calavera\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\cvpch.cpp">
