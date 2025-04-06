@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
+IncludeDir["Glad"] = "Calavera/vendor/Glad/include"
 
 include "Calavera/vendor/GLFW"
+include "Calavera/vendor/Glad"
 
 project "Calavera"
 	location "Calavera"
@@ -37,12 +39,14 @@ project "Calavera"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Calavera"
 		defines
 		{
 			"CV_PLATFORM_WINDOWS",
-			"CV_BUILD_DLL"
+			"CV_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
