@@ -67,6 +67,8 @@
     <ClInclude Include="src\cvpch.h" />
     <ClInclude Include="src\Calavera\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Calavera\KeyCodes.h" />
+    <ClInclude Include="src\Calavera\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Application.cpp">

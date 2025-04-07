@@ -161,10 +161,12 @@
     <ClInclude Include="src\Calavera\Events\KeyEvent.h" />
     <ClInclude Include="src\Calavera\Events\MouseEvent.h" />
     <ClInclude Include="src\Calavera\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Calavera\KeyCodes.h" />
     <ClInclude Include="src\Calavera\Layer.h" />
     <ClInclude Include="src\Calavera\LayerStack.h" />
     <ClInclude Include="src\Calavera\Log.h" />
     <ClInclude Include="src\Calavera\Input.h" />
+    <ClInclude Include="src\Calavera\MouseButtonCodes.h" />
     <ClInclude Include="src\Calavera\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
