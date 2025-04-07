@@ -6,5 +6,7 @@
 #include "Calavera/Layer.h"
 #include "Calavera/Log.h"
 
+#include "Calavera/ImGui/ImGuiLayer.h"
+
 //------------- EntryPoint ----------------
 #include "Calavera/EntryPoint.h"

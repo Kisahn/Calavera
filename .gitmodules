@@ -4,3 +4,6 @@
 [submodule "Calavera/vendor/GLFW"]
 	path = Calavera/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Calavera/vendor/imgui"]
+	path = Calavera/vendor/imgui
+	url = https://github.com/TheCherno/imgui

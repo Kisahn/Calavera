@@ -26,6 +26,7 @@ class Sandbox : public Calavera::Application
 		Sandbox()
 		{
 			PushLayer(new ExampleLayer());
+			PushOverlay(new Calavera::ImGuiLayer());
 		}
 
 		~Sandbox()
