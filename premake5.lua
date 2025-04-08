@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Calavera/vendor/GLFW/include"
 IncludeDir["Glad"] = "Calavera/vendor/Glad/include"
 IncludeDir["ImGui"] = "Calavera/vendor/imgui"
+IncludeDir["glm"] = "Calavera/vendor/glm"
 
 include "Calavera/vendor/GLFW"
 include "Calavera/vendor/Glad"
@@ -36,7 +37,9 @@ project "Calavera"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -45,7 +48,8 @@ project "Calavera"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -105,7 +109,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Calavera/vendor/spdlog/include",
-		"Calavera/src"
+		"Calavera/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

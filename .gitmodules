@@ -7,3 +7,6 @@
 [submodule "Calavera/vendor/imgui"]
 	path = Calavera/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Calavera/vendor/glm"]
+	path = Calavera/vendor/glm
+	url = https://github.com/g-truc/glm
