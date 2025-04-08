@@ -1,19 +1,22 @@
 #pragma once
 
 #ifdef CV_PLATFORM_WINDOWS
-	#ifdef CV_BUILD_DLL
-		#define CALAVERA_API __declspec(dllexport)
+	#if CV_DYNAMIC_LINK
+		#ifdef CV_BUILD_DLL
+			#define CALAVERA_API __declspec(dllexport)
+		#else
+			#define CALAVERA_API __declspec(dllimport)
+		#endif
 	#else
-		#define CALAVERA_API __declspec(dllimport)
-	#endif // CV_BUILD_DLL
+		#define CALAVERA_API
+	#endif
 #else
-	#error Calavera only supports Windows !
+	#error Calavera only supports Windows!
 #endif
 
 #ifdef CV_DEBUG
 	#define CV_ENABLE_ASSERTS
-#endif // CV_DEBUG
-
+#endif
 
 #ifdef CV_ENABLE_ASSERTS
 	#define CV_ASSERT(x, ...) { if(!(x)) { CV_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
