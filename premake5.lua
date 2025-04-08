@@ -110,6 +110,7 @@ project "Sandbox"
 	{
 		"Calavera/vendor/spdlog/include",
 		"Calavera/src",
+		"Calavera/vendor",
 		"%{IncludeDir.glm}"
 	}
 

@@ -4,38 +4,41 @@
 
 #include "Window.h"
 #include "Calavera/LayerStack.h"
-#include "Events/Event.h"
+#include "Calavera/Events/Event.h"
 #include "Calavera/Events/ApplicationEvent.h"
+
+#include "Calavera/ImGui/ImGuiLayer.h"
 
 namespace Calavera {
 
 	class CALAVERA_API Application
 	{
-		public:
-			Application();
-			virtual ~Application();
+	public:
+		Application();
+		virtual ~Application();
 
-			void Run();
-			void OnEvent(Event& e);
+		void Run();
 
-			void PushLayer(Layer* layer);
-			void PushOverlay(Layer* layer);
+		void OnEvent(Event& e);
 
-			inline Window& GetWindow() { return *m_Window; }
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 
-			inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; }
 
-		private:
-			bool OnWindowClose(WindowCloseEvent& e);
-			
-			std::unique_ptr<Window> m_Window;
-			bool m_Running = true;
-			LayerStack m_LayerStack;
-			static Application* s_Instance;
+		inline static Application& Get() { return *s_Instance; }
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
+		bool m_Running = true;
+		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 
-	// To be defined in the client
+	// To be defined in CLIENT
 	Application* CreateApplication();
 
 }
-
