@@ -1187,6 +1187,7 @@
     </ClInclude>
     <ClInclude Include="src\Calavera\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Calavera\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Application.cpp">
@@ -1217,5 +1218,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Calavera\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
