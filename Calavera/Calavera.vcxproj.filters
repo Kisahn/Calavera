@@ -1188,6 +1188,9 @@
     <ClInclude Include="src\Calavera\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Calavera\Renderer\Shader.h" />
+    <ClInclude Include="src\Calavera\Renderer\Renderer.h" />
+    <ClInclude Include="src\Calavera\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Calavera\Application.cpp">
@@ -1219,5 +1222,8 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Calavera\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Calavera\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Calavera\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
   </ItemGroup>
 </Project>
