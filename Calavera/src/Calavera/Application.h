@@ -11,6 +11,7 @@
 
 #include "Calavera/Renderer/Shader.h"
 #include "Calavera/Renderer/Buffer.h"
+#include "Calavera/Renderer/VertexArray.h"
 
 namespace Calavera {
 
@@ -39,10 +40,11 @@ namespace Calavera {
 			bool m_Running = true;
 			LayerStack m_LayerStack;
 
-			unsigned int m_VertexArray;
-			std::unique_ptr<Shader> m_Shader;
-			std::unique_ptr<VertexBuffer> m_VertexBuffer;
-			std::unique_ptr<IndexBuffer> m_IndexBuffer;
+			std::shared_ptr<Shader> m_Shader;
+			std::shared_ptr<VertexArray> m_VertexArray;
+
+			std::shared_ptr<Shader> m_BlueShader;
+			std::shared_ptr<VertexArray> m_SquareVA;
 
 		private:
 			static Application* s_Instance;
