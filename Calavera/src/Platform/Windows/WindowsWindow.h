@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Calavera/Window.h"
+#include "Calavera/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -29,6 +30,7 @@ namespace Calavera {
 			virtual void Shutdown();
 
 			GLFWwindow* m_Window;
+			GraphicsContext* m_Context;
 
 		struct WindowData
 		{
