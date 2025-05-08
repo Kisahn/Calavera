@@ -1,7 +1,7 @@
 # Calavera Engine
 
 > A modular game engine prototype written in modern C++17, built from scratch as part of a learning journey inspired by TheCherno’s "Game Engine" YouTube series.  
-> Designed and developed by [Jean Deck](https://github.com/JeanDeck) as a personal deep-dive into low-level rendering, architecture, and system design.
+> Designed and developed as a personal deep-dive into low-level rendering, architecture, and system design.
 
 ---
 
